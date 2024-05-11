@@ -31,7 +31,7 @@ function DrawerCon({ children }) {
 
             <List>
                 <ListItem>
-                    <ListItemText primary="Algorithms and Data Structures" />
+                    <ListItemText primary="Visualize Algorithms" />
                 </ListItem>
                 <Divider />
                 {items.map((item, index) => (

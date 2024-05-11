@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Rects from "./rects";
 import Menu from "./menu";
-import AlgoInfo from "../AlgoInfo";
-import { Box } from "@mui/material";
-import Algos from "../../assets/data.json";
 import DrawerCon from "../DrawerCon";
 export const searchingAlgorithmsData = [
     {

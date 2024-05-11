@@ -4,9 +4,7 @@ import mergeSort from "../../algorithms/mergeSort";
 import heapSort from "../../algorithms/heapSort";
 import { quickSortRecursive } from "../../algorithms/quickSortRecursive";
 import Menu from "./menu";
-import AlgoInfo from "../AlgoInfo";
 import { Box } from "@mui/material";
-import Algos from '../../assets/data.json'
 import DrawerCon from "../DrawerCon";
 import { sortingAlgorithmsData } from "../sortingComponents/sort";
 

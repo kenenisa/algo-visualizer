@@ -3,8 +3,6 @@ import classes from "../Tree.module.css";
 import { getpreordertraversal } from "./getPreorderTraversal";
 import TreeNode from "../TreeNode";
 import { Box } from "@mui/material";
-import AlgoInfo from "../../AlgoInfo";
-import Algos from "../../../assets/data.json";
 import { Button } from '@mui/material'
 
 const PreorderTraversal = () => {

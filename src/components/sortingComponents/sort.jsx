@@ -7,9 +7,7 @@ import {
 } from "../../algorithms/sortingAlgorithms";
 import { quickSort } from "../../algorithms/quickSort";
 import Menu from "./menu";
-import AlgoInfo from "../AlgoInfo";
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
-import Algos from "../../assets/data.json";
 
 import DrawerCon from "../DrawerCon";
 

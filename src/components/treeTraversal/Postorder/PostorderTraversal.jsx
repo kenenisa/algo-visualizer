@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "../Tree.module.css";
 import { getpostordertraversal } from "./getPostorderTraversal";
 import TreeNode from "../TreeNode";
-import AlgoInfo from "../../AlgoInfo";
 import { Box } from "@mui/material";
-import Algos from "../../../assets/data.json";
 import { Button } from '@mui/material'
 
 const PostorderTraversal = () => {

@@ -5,8 +5,6 @@ import classes from "../Tree.module.css";
 import { getInordertraversal } from "./getInorderTranversal";
 import TreeNode from "../TreeNode";
 import { Box } from "@mui/material";
-import AlgoInfo from "../../AlgoInfo";
-import Algos from "../../../assets/data.json";
 import { Button } from '@mui/material'
 
 const InorderTranversal = () => {
