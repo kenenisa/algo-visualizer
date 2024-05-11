@@ -4,7 +4,7 @@ import SimpleSelect from "./simpleSelect";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import { Button, Input, TextField } from '@mui/material';
-
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 class Menu extends Component {
     constructor(props) {
         super(props);
@@ -58,10 +58,11 @@ class Menu extends Component {
                     <Button
                         onClick={this.props.onViusalize}
                         disabled={this.props.disable}
-                        sx={{ ...this.isClickable() }}
+                        sx={{ ...this.isClickable(), mt: 1 }}
                         variant="contained"
                         fullWidth
-
+                        color="success"
+                        startIcon={<PlayCircleIcon />}
                     >
                         Visualize
                     </Button>

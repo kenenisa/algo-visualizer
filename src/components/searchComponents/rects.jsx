@@ -4,11 +4,11 @@ import FlipMove from 'react-flip-move';
 
 class Rects extends Component {
     render() {
-        let margin = 5;
-        let width = 35;
-        if (this.props.rects.length > 50) {
-            margin = 1;
-            width = 25;
+        let margin = 2;
+        let width = 45;
+        if( this.props.rects.length>50 ){
+            margin=1;
+            width=12;
         }
         return (
             <div>

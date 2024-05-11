@@ -31,16 +31,15 @@ class Rect extends Component {
     //         return "black"
     //     }
     // }
-
     getColorClass = () => {
         if (this.props.rect.isFound) {
-            return 'green';
+            return "rgb(21 128 61)";
         } else if (this.props.rect.isSorting) {
-            return 'red';
+            return "rgb(245 158 11)";
         } else if (this.props.rect.isChecked) {
             return 'black';
         } else {
-            return 'black';
+            return "rgb(190 24 93)"
         }
     }
 }

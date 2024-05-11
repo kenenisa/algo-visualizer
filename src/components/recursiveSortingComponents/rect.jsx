@@ -18,17 +18,17 @@ class Rect extends Component {
   }
   checkColor = () => {
     if (this.props.rect.isSorted) {
-      return "green";
+      return "rgb(21 128 61)";
     } else if (this.props.rect.isSorting) {
-      return "orange";
-    } else if (this.props.rect.isLeft) {
-      return "red";
+      return "rgb(245 158 11)";
+    } else if (this.props.rect.isChecked) {
+      return 'black';
     } else if (this.props.rect.isRight) {
-      return "purple";
+      return 'rgb(2 132 199)';
     } else {
-      return "#ADD8E6";
+      return "rgb(190 24 93)"
     }
-  };
+  }
   checkBorder = () => {
     if (this.props.rect.isRange) {
       return "0px solid black";

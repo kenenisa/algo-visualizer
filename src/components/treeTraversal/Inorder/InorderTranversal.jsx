@@ -81,33 +81,12 @@ const InorderTranversal = () => {
         ))}
       </div>
       <div className={classes.button}>
-      <Button onClick={GenerateTree} variant="outlined">
+        <Button onClick={GenerateTree} variant="outlined">
           Regenerate Tree
         </Button>
         <Button onClick={preordertraversal} variant="contained">
           Inorder Traversal
         </Button>
-      </div>
-      <div className="my-2 mx-auto flex gap-4 w-fit items-center">
-        <p className="font-semibold text-lg">
-          <em className="font-normal">Time Complexity:</em>{" "}  {Algos.treeTraversal[0].timeComplexity}
-        </p>
-        <button
-          onClick={handleClickOpen}
-          className="text-white px-5 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
-        >
-          View more
-        </button>
-        <Box>
-          <AlgoInfo
-            open={open}
-            handleClose={handleClickOpen}
-            data={{
-              type: "treeTraversal",
-              index: 0
-            }}
-          />
-        </Box>
       </div>
     </div>
   );

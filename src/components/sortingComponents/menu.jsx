@@ -5,7 +5,7 @@ import SwitchLabels from "./formControlLabel";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import { Box, Button, Divider } from "@mui/material";
-
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 class Menu extends Component {
   render() {
     return (
@@ -49,10 +49,11 @@ class Menu extends Component {
           <Button
             onClick={this.props.onViusalize}
             disabled={this.props.disable}
-            sx={{ ...this.isClickable() }}
+            sx={{ ...this.isClickable(), mt: 1 }}
             variant="contained"
             fullWidth
-
+            color="success"
+            startIcon={<PlayCircleIcon />}
           >
             Visualize
           </Button>

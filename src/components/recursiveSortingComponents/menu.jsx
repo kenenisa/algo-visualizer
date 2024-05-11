@@ -4,7 +4,7 @@ import SimpleSelect from "./simpleSelect";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import { Button } from "@mui/material";
-
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 class Menu extends Component {
   render() {
@@ -22,7 +22,7 @@ class Menu extends Component {
           disable={this.props.disable}
         />
         <DiscreteSlider
-          default={50}
+          default={25}
           min={10}
           max={100}
           step={1}
@@ -41,9 +41,11 @@ class Menu extends Component {
           <Button
             onClick={this.props.onViusalize}
             disabled={this.props.disable}
-            sx={{ ...this.isClickable() }}
+            sx={{ ...this.isClickable(), mt: 1 }}
             variant="contained"
             fullWidth
+            color="success"
+            startIcon={<PlayCircleIcon />}
 
           >
             Visualize

@@ -10,11 +10,14 @@ import Algos from '../../assets/data.json'
 import DrawerCon from "../DrawerCon";
 import { sortingAlgorithmsData } from "../sortingComponents/sort";
 
+
+
+
 class RecursiveSort extends Component {
   state = {
     count: 20,
     rects: [],
-    speed: 50,
+    speed: 760 - 25 * 7.5,
     isRunning: false,
     algo: 0,
     open: false,

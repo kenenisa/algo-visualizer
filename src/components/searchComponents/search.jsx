@@ -41,7 +41,7 @@ class Sort extends Component {
     state = {
         count: 20,
         rects: [],
-        speed: 25,
+        speed: 760 - 25 * 7.5,
         isRunning: false,
         algo1: 0,
         open: false,
@@ -138,20 +138,19 @@ class Sort extends Component {
                     />
                 </DrawerCon>
                 <div className="flex flex-col items-center justify-center gap-5 mt-16">
+                    {this.state.resultFound &&
+                        <span className="text-xl text-green-600 font-bold text-center">
+                            Number found at position {this.state.foundAt + 1}
+                        </span>
+                    }
+                    {this.state.resultNotFound &&
+                        <span className="text-xl text-red-500 font-bold text-center">
+                            Number Not Found!
+                        </span>
+                    }
                     <Rects speed={this.state.speed} rects={this.state.rects} />
                     <div>
-                        {/* <p className="font-semibold text-lg mt-5">
-                            <em className="font-normal">Algorithm:</em>{" "} {Algos.searching[this.state.algo1].name}
-                        </p>
-                        <p className="font-semibold text-lg">
-                            <em className="font-normal">Time Complexity:</em>{" "}  {Algos.searching[this.state.algo1].timeComplexity}
-                        </p>
-                        <button
-                            onClick={this.handleClickOpen}
-                            className="text-white px-5 py-2 mt-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
-                        >
-                            View more
-                        </button> */}
+
                         <div className="flex flex-col w-full text-gray-900 p-4 rounded border border-system-wite bg-opacity-10 gap-6">
                             <div className="flex flex-col items-start justify-start w-3/4">
                                 <h3 className="text-xl">
@@ -209,27 +208,9 @@ class Sort extends Component {
                                 </div>
                             </div>
                         </div>
-                        <Box>
-                            <AlgoInfo
-                                open={this.state.open}
-                                handleClose={this.handleClickOpen}
-                                data={{
-                                    type: "searching",
-                                    index: this.state.algo1
-                                }}
-                            />
-                        </Box>
+
                     </div>
-                    {this.state.resultFound &&
-                        <span className="text-xl text-green-600 font-bold text-center">
-                            Element found at position {this.state.foundAt + 1} :)
-                        </span>
-                    }
-                    {this.state.resultNotFound &&
-                        <span className="text-xl text-red-500 font-bold text-center">
-                            Element not present 😟
-                        </span>
-                    }
+
                 </div>
             </React.Fragment>
         );
