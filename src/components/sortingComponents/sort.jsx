@@ -94,7 +94,7 @@ class Sort extends Component {
   constructor() {
     super();
     this.state = {
-      count: 20,
+      count: 35,
       rects: [],
       rects2: [],
       doubles: false,
