@@ -5,12 +5,43 @@ import AlgoInfo from "../AlgoInfo";
 import { Box } from "@mui/material";
 import Algos from "../../assets/data.json";
 import DrawerCon from "../DrawerCon";
+export const searchingAlgorithmsData = [
+    {
+        name: "linear",
+        title: "Linear Search",
+        description:
+            "Linear search, also known as sequential search, is a simple search algorithm that checks each element in the list until the desired element is found or the end of the list is reached. It sequentially checks each element of the list until a match is found or the whole list has been searched.",
+        timeComplexity: "O(n)",
+        spaceComplexity: "O(1)",
+        bestCase: "O(1)",
+        worstCase: "O(n)",
+        averageCase: "O(n/2)",
+        stable: true,
+        adaptive: false,
+        inPlace: true
+    },
+    {
+        name: "binary",
+        title: "Binary Search",
+        description:
+            "Binary search is a fast search algorithm with logarithmic time complexity. It works on sorted arrays by repeatedly dividing the search interval in half. The algorithm compares the target value to the middle element of the array. If the target value matches the middle element, its position in the array is returned. If the target value is less than the middle element, the search continues in the lower half of the array; if the target value is greater, it continues in the upper half.",
+        timeComplexity: "O(log n)",
+        spaceComplexity: "O(1)",
+        bestCase: "O(1)",
+        worstCase: "O(log n)",
+        averageCase: "O(log n)",
+        stable: true,
+        adaptive: false,
+        inPlace: true
+    }
+];
+
 
 class Sort extends Component {
     state = {
         count: 20,
         rects: [],
-        speed: 50,
+        speed: 25,
         isRunning: false,
         algo1: 0,
         open: false,
@@ -109,7 +140,7 @@ class Sort extends Component {
                 <div className="flex flex-col items-center justify-center gap-5 mt-16">
                     <Rects speed={this.state.speed} rects={this.state.rects} />
                     <div>
-                        <p className="font-semibold text-lg mt-5">
+                        {/* <p className="font-semibold text-lg mt-5">
                             <em className="font-normal">Algorithm:</em>{" "} {Algos.searching[this.state.algo1].name}
                         </p>
                         <p className="font-semibold text-lg">
@@ -120,7 +151,64 @@ class Sort extends Component {
                             className="text-white px-5 py-2 mt-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
                         >
                             View more
-                        </button>
+                        </button> */}
+                        <div className="flex flex-col w-full text-gray-900 p-4 rounded border border-system-wite bg-opacity-10 gap-6">
+                            <div className="flex flex-col items-start justify-start w-3/4">
+                                <h3 className="text-xl">
+                                    {searchingAlgorithmsData[this.state.algo1].title}
+                                </h3>
+                                <p className="text-sm text-grey-500 pt-2">
+                                    {searchingAlgorithmsData[this.state.algo1].description}
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                                <h3 className="text-lg">Time Complexity</h3>
+                                <div className="flex flex-col gap-2">
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">Worst Case:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].worstCase}
+                                        </span>
+                                    </p>
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">Average Case:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].averageCase}
+                                        </span>
+                                    </p>
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">Best Case:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].bestCase}
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                                <h3 className="text-lg">Properties</h3>
+                                <div className="flex flex-col gap-2">
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">Stable:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].stable ? 'YES' : 'NO'}
+                                        </span>
+                                    </p>
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">Adaptive:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].adaptive ? 'YES' : 'NO'}
+                                        </span>
+                                    </p>
+                                    <p className="flex w-full text-sm">
+                                        <span className="w-28">InPlace:</span>
+                                        <span>
+                                            {searchingAlgorithmsData[this.state.algo1].inPlace ? 'YES' : 'NO'}
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                         <Box>
                             <AlgoInfo
                                 open={this.state.open}

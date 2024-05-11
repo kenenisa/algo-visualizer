@@ -9,34 +9,28 @@ const FormWrapper = styled('div')(({ theme }) => ({
     margin: theme.spacing(1),
 }));
 
+const buttons = [
+    { text: 'Linear Search', value: 0 },
+    { text: 'Binary Search', value: 1 },
+]
 const SimpleSelect = ({ pos, onAlgoChanged }) => {
-    const [algo, setAlgo] = useState('0');
+    const [algo, setAlgo] = useState(0);
     // const [state, setState] = useState({
     //   pos: props.pos,
     // });
 
     const handleChange = (event) => {
-        setAlgo(event.target.value);
-        onAlgoChanged(pos, event.target.value);
+        setAlgo(event);
+        onAlgoChanged(pos, event);
     };
 
     return (
-        <FormWrapper className="ml-2 mr-2">
-            <FormControl variant="standard">
-                <InputLabel id="demo-simple-select-autowidth-label">Algorithm</InputLabel>
-                <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    value={algo}
-                    onChange={handleChange}
-                    autoWidth
-                    label="algo"
-                >
-                    <MenuItem value={0}>Linear Search</MenuItem>
-                    <MenuItem value={1}>Binary Search</MenuItem>
-                </Select>
-            </FormControl>
-        </FormWrapper>
+        <>
+            {buttons.map((val, key) => (
+                <MenuItem onClick={() => handleChange(val.value)} value={val.value} selected={val.value === algo} sx>{val.text}</MenuItem>
+            ))}
+
+        </>
     );
 };
 

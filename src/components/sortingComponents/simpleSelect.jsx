@@ -6,13 +6,13 @@ import Select from '@mui/material/Select';
 
 
 const buttons = [
-    { text: 'Bubble Sort', value: '0' },
-    { text: 'Selection Sort', value: '1' },
-    { text: 'Insertion Sort', value: '2' },
-    { text: 'Quick Sort', value: '3' },
+    { text: 'Bubble Sort', value: 0 },
+    { text: 'Selection Sort', value: 1 },
+    { text: 'Insertion Sort', value: 2 },
+    { text: 'Quick Sort', value: 3 },
 ]
 const SimpleSelect = (props) => {
-    const [algo, setAlgo] = useState('0');
+    const [algo, setAlgo] = useState(0);
     // const [state, setState] = React.useState({
     //     pos: props.pos,
     // });

@@ -13,7 +13,12 @@ class Menu extends Component {
       <div className="flex flex-col justify-center items-center gap-10 py-2">
 
 
-
+        <SimpleSelect
+          pos={0}
+          onAlgoChanged={this.props.onAlgoChanged}
+          onRandomize={this.props.onRandomize}
+          disable={this.props.disable}
+        />
         <DiscreteSlider
           default={20}
           min={10}
@@ -24,7 +29,7 @@ class Menu extends Component {
           disable={this.props.disable}
         />
         <DiscreteSlider
-          default={50}
+          default={25}
           min={10}
           max={100}
           step={1}
@@ -32,12 +37,7 @@ class Menu extends Component {
           onCountChange={this.props.onSpeedChange}
           disable={false}
         />
-        <SimpleSelect
-          pos={0}
-          onAlgoChanged={this.props.onAlgoChanged}
-          onRandomize={this.props.onRandomize}
-          disable={this.props.disable}
-        />
+
         <div>
           <Button onClick={this.props.onRandomize}
             disabled={this.props.disable} sx={{ ...this.isClickable() }}

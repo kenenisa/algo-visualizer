@@ -8,6 +8,7 @@ import AlgoInfo from "../AlgoInfo";
 import { Box } from "@mui/material";
 import Algos from '../../assets/data.json'
 import DrawerCon from "../DrawerCon";
+import { sortingAlgorithmsData } from "../sortingComponents/sort";
 
 class RecursiveSort extends Component {
   state = {
@@ -50,28 +51,63 @@ class RecursiveSort extends Component {
         <div className="flex flex-col items-center justify-center gap-5 mt-10">
           <Rects rects={this.state.rects} />
           <div>
-            <p className="font-semibold text-lg mt-5">
-              <em className="font-normal">Algorithm:</em>{" "} {Algos.recursiveSorting[this.state.algo].name}
-            </p>
-            <p className="font-semibold text-lg">
-              <em className="font-normal">Time Complexity:</em>{" "}  {Algos.recursiveSorting[this.state.algo].timeComplexity}
-            </p>
-            <button
-              onClick={this.handleClickOpen}
-              className="text-white px-5 py-2 mt-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
-            >
-              View more
-            </button>
-            <Box>
-              <AlgoInfo
-                open={this.state.open}
-                handleClose={this.handleClickOpen}
-                data={{
-                  type: "recursiveSorting",
-                  index: this.state.algo
-                }}
-              />
-            </Box>
+            <div className="flex flex-col w-full text-gray-900 p-4 rounded border border-system-wite gap-6">
+              <div className="flex flex-col items-start justify-start w-3/4">
+                <h3 className="text-xl">
+                  {sortingAlgorithmsData[this.state.algo + 4].title}
+                </h3>
+                <p className="text-sm text-grey-900 pt-2">
+                  {sortingAlgorithmsData[this.state.algo + 4].description}
+                </p>
+              </div>
+
+              <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                <h3 className="text-lg">Time Complexity</h3>
+                <div className="flex flex-col gap-2">
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Worst Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo + 4].worstCase}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Average Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo + 4].averageCase}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Best Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo + 4].bestCase}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                <h3 className="text-lg">Properties</h3>
+                <div className="flex flex-col gap-2">
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Stable:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo+4].stable ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Adaptive:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo+4].adaptive ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">InPlace:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo+4].inPlace ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </React.Fragment>

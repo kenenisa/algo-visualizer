@@ -5,6 +5,7 @@ import TreeNode from "../TreeNode";
 import { Box } from "@mui/material";
 import AlgoInfo from "../../AlgoInfo";
 import Algos from "../../../assets/data.json";
+import { Button } from '@mui/material'
 
 const PreorderTraversal = () => {
   const [tree, setTree] = useState([]);
@@ -77,22 +78,12 @@ const PreorderTraversal = () => {
       </div>
 
       <div className={classes.button}>
-        <button
-          className="text-blue-700 hover:text-white border border-blue-500 bg-white hover:bg-blue-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-4 py-1.5 text-center"
-          onClick={() => {
-            GenerateTree();
-          }}
-        >
-          Generate Tree
-        </button>
-        <button
-          className="text-blue-700 hover:text-white border border-blue-500 bg-white hover:bg-blue-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-4 py-1.5 text-center"
-          onClick={() => {
-            preordertraversal();
-          }}
-        >
+        <Button onClick={GenerateTree} variant="outlined">
+          Regenerate Tree
+        </Button>
+        <Button onClick={preordertraversal} variant="contained">
           Preorder Traversal
-        </button>
+        </Button>
       </div>
 
       <div className="my-2 mx-auto flex gap-4 w-fit items-center">
@@ -116,7 +107,7 @@ const PreorderTraversal = () => {
           />
         </Box>
       </div>
-    </div>
+    </div >
   );
 };
 

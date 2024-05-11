@@ -13,21 +13,101 @@ import Algos from "../../assets/data.json";
 
 import DrawerCon from "../DrawerCon";
 
+
+export const sortingAlgorithmsData = [
+  {
+    name: "bubble",
+    title: "Bubble Sort",
+    description:
+      "A simple comparison-based sorting algorithm. Bubble sort repeatedly compares and swaps adjacent elements if they are in the wrong order, moving larger elements towards the end with each pass through the list. This process continues until the list is sorted and no more swaps are needed.",
+    worstCase: "O(n²)",
+    averageCase: "O(n²)",
+    bestCase: "O(n)",
+    stable: true,
+    adaptive: true,
+    inPlace: true
+  },
+  {
+    name: "insertion",
+    title: "Insertion Sort",
+    description:
+      "Insertion sort builds the final sorted array one element at a time, by repeatedly taking the next unsorted element and inserting it into its correct position among the previously sorted elements. This process continues until all elements have been inserted into their proper place, resulting in a sorted list.",
+    worstCase: "O(n²)",
+    averageCase: "O(n²)",
+    bestCase: "O(n)",
+    stable: true,
+    adaptive: true,
+    inPlace: true
+  },
+  {
+    name: "selection",
+    title: "Selection Sort",
+    description:
+      "Selection sort works by repeatedly finding the minimum element from the unsorted portion of the list and swapping it with the element at the current position. This process is continued for each position in the list, moving the boundary of the sorted and unsorted portions one element forward each time until the entire list is sorted.",
+    worstCase: "O(n²)",
+    averageCase: "O(n²)",
+    bestCase: "O(n²)",
+    stable: false,
+    adaptive: false,
+    inPlace: true
+  },
+
+  {
+    name: "quick",
+    title: "Quick Sort",
+    description:
+      "Quick sort selects a 'pivot' element from the array and partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively, and the sorted sub-arrays are combined with the pivot to form the sorted array.",
+    worstCase: "O(n²)",
+    averageCase: "O(n log n)",
+    bestCase: "O(n log n)",
+    stable: false,
+    adaptive: false,
+    inPlace: true
+  },
+  {
+    name: "merge",
+    title: "Merge Sort",
+    description:
+      "Merge sort divides the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), and then repeatedly merges these sublists to produce new sorted sublists until there is only one sublist remaining, which is the sorted list. This algorithm uses a divide-and-conquer approach, splitting the list in half recursively and merging the sorted halves back together.",
+    worstCase: "O(n log n)",
+    averageCase: "O(n log n)",
+    bestCase: "O(n log n)",
+    stable: true,
+    adaptive: false,
+    inPlace: false
+  },
+  {
+    name: "heap",
+    title: "Heap Sort",
+    description:
+      "Heap sort is a comparison-based sorting algorithm. It transforms the input array into a heap, a specialized binary tree. It then repeatedly extracts the maximum (for ascending order) or minimum (for descending order) element from the heap and reconstructs the heap until the original array is sorted. Heap sort has a time complexity of O(n log n) in the worst, average, and best cases.",
+    worstCase: "O(n log n)",
+    averageCase: "O(n log n)",
+    bestCase: "O(n log n)",
+    stable: false,
+    adaptive: false,
+    inPlace: true
+  }
+];
+
 class Sort extends Component {
-  state = {
-    count: 20,
-    rects: [],
-    rects2: [],
-    doubles: false,
-    speed: 50,
-    isRunning: false,
-    isRunning1: false,
-    isRunning2: false,
-    algo1: 0,
-    algo2: 0,
-    open: false,
-    open2: false,
-  };
+  constructor() {
+    super();
+    this.state = {
+      count: 20,
+      rects: [],
+      rects2: [],
+      doubles: false,
+      speed: 760 - 25 * 7.5,
+      isRunning: false,
+      isRunning1: false,
+      isRunning2: false,
+      algo1: 0,
+      algo2: 0,
+      open: false,
+      open2: false,
+    };
+  }
 
   componentDidMount() {
     const rect = getInitialRects(this.state.count);
@@ -56,56 +136,64 @@ class Sort extends Component {
         <div className="flex flex-col items-center justify-center gap-5">
           <Rects speed={this.state.speed} rects={this.state.rects} />
           <div className="flex gap-5">
-            <p className="font-semibold text-lg">
-              {Algos["sorting"][this.state.algo1]?.name}, <em className="font-normal">Time Complexity:</em>{" "}
-              {Algos["sorting"][this.state.algo1]?.timeComplexity}
-            </p>
-            <button
-              onClick={this.handleClickOpen}
-              className="text-white px-5 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
-            >
-              View more
-            </button>
-            <Box>
-              <AlgoInfo
-                open={this.state.open}
-                handleClose={this.handleClickOpen}
-                data={{
-                  type: "sorting",
-                  index: this.state.algo1
-                }}
-              />
-            </Box>
-          </div>
-          {this.state.doubles && <hr style={{ width: "90%" }} />}
-          {this.state.doubles && (
-            <>
-              <Rects rects={this.state.rects2} />
-              <div className="flex gap-5 mb-10">
-                <p className="font-semibold text-lg">
-                  {Algos["sorting"][this.state.algo2]?.name}, <em className="font-normal">Time Complexity:</em>{" "}
-                  {Algos["sorting"][this.state.algo2]?.timeComplexity}
+            <div className="flex flex-col w-full text-gray-900 p-4 rounded border border-system-wite gap-6">
+              <div className="flex flex-col items-start justify-start w-3/4">
+                <h3 className="text-xl">
+                  {sortingAlgorithmsData[this.state.algo1].title}
+                </h3>
+                <p className="text-sm text-grey-900 pt-2">
+                  {sortingAlgorithmsData[this.state.algo1].description}
                 </p>
-                <button
-                  onClick={this.handleClickOpen2}
-                  className="text-white px-5 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
-                >
-                  View more
-                </button>
-
-                <Box>
-                  <AlgoInfo
-                    open={this.state.open2}
-                    handleClose={this.handleClickOpen2}
-                    data={{
-                      type: "sorting",
-                      index: this.state.algo2
-                    }}
-                  />
-                </Box>
               </div>
-            </>
-          )}
+
+              <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                <h3 className="text-lg">Time Complexity</h3>
+                <div className="flex flex-col gap-2">
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Worst Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].worstCase}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Average Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].averageCase}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Best Case:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].bestCase}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                <h3 className="text-lg">Properties</h3>
+                <div className="flex flex-col gap-2">
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Stable:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].stable ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">Adaptive:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].adaptive ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                  <p className="flex w-full text-sm">
+                    <span className="w-28">InPlace:</span>
+                    <span>
+                      {sortingAlgorithmsData[this.state.algo1].inPlace ? 'YES' : 'NO'}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </React.Fragment>
     );
@@ -158,11 +246,13 @@ class Sort extends Component {
   handleSort = () => {
     this.setState({ isRunning: true });
     let steps1;
+    console.log(this.state);
     switch (this.state.algo1) {
       case 0:
         steps1 = bubbleSort(this.state.rects);
         break;
       case 1:
+        console.log("BRROOOOOO");
         steps1 = selectionSort(this.state.rects);
         break;
       case 2:
@@ -172,7 +262,7 @@ class Sort extends Component {
         steps1 = quickSort(this.state.rects2);
         console.log(steps1);
         break;
-        
+
       default:
         steps1 = bubbleSort(this.state.rects);
         break;

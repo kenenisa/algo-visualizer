@@ -4,12 +4,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 const buttons = [
-    { text: 'Merge Sort', value: '0' },
-    { text: 'Heap Sort', value: '1' },
+    { text: 'Merge Sort', value: 0 },
+    { text: 'Heap Sort', value: 1 },
 ]
 
 const SimpleSelect = (props) => {
-    const [algo, setAlgo] = useState('0');
+    const [algo, setAlgo] = useState(0);
 
     const handleChange = (event) => {
         setAlgo(event);

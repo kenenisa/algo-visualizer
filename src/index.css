@@ -5,9 +5,10 @@
 body {
   margin: 0;
   padding: 0;
+  background: 'red'
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
