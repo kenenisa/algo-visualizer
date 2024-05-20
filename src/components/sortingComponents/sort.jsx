@@ -26,18 +26,6 @@ export const sortingAlgorithmsData = [
     inPlace: true
   },
   {
-    name: "insertion",
-    title: "Insertion Sort",
-    description:
-      "Insertion sort builds the final sorted array one element at a time, by repeatedly taking the next unsorted element and inserting it into its correct position among the previously sorted elements. This process continues until all elements have been inserted into their proper place, resulting in a sorted list.",
-    worstCase: "O(n²)",
-    averageCase: "O(n²)",
-    bestCase: "O(n)",
-    stable: true,
-    adaptive: true,
-    inPlace: true
-  },
-  {
     name: "selection",
     title: "Selection Sort",
     description:
@@ -49,6 +37,19 @@ export const sortingAlgorithmsData = [
     adaptive: false,
     inPlace: true
   },
+  {
+    name: "insertion",
+    title: "Insertion Sort",
+    description:
+      "Insertion sort builds the final sorted array one element at a time, by repeatedly taking the next unsorted element and inserting it into its correct position among the previously sorted elements. This process continues until all elements have been inserted into their proper place, resulting in a sorted list.",
+    worstCase: "O(n²)",
+    averageCase: "O(n²)",
+    bestCase: "O(n)",
+    stable: true,
+    adaptive: true,
+    inPlace: true
+  },
+
 
   {
     name: "quick",
